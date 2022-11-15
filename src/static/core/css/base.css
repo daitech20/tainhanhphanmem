@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #333;
+    line-height: 1.6;
+}
+
+.header-inner{
+    height: 70px;
+    line-height: 70px;
+}
+
+#masthead{
+    background-color: #3a3a3a;
+}
+
+#logo {
+    width: 300px;
+    margin: 0 auto;
+}
+
+#logo a {
+    text-decoration: none;
+    display: block;
+    color: #446084;
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin: 0;
+}
+
+#logo img {
+    max-height: 70px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#wide-nav{
+    height: 60px;
+    background-color: #333333;
+    line-height: 60px;
+}
+
+.flex-row{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.search-field{
+    height: 40px;
+    background: #ffffff0f;
+
+}
+
+.flex-col:first-child{
+    width: 100%;
+}
+
+
+
+.flex-col input{
+    border: 1px solid #00000045;
+    background: #ffffff0f;
+    padding: 0 20px;
+    width: 100%;
+    border: none; /* <-- This thing here */
+    border-radius: 20px;
+    position: relative;
+}
+
+.fa-search{
+    font-size: 60px;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.fa-search:hover{
+    color: red;
+}
+
+.submit-button{
+    background: rgba(0,0,0,0);
+    border: none;
+    height: 30px;
+    position: absolute;
+    right: 10%;
+    width: 50px;
+
+}

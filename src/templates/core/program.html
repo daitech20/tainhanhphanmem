@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}
+    <title>Tai</title>
+{% endblock %}
+
+{% block main %}
+    <div id="main">
+        <div class="row justify-content-center">
+            <img src="/media/images/logo.png" sizes="(max-width: 516px) 100vw, 516px">
+        </div>
+
+        <div class="row justify-content-center">
+            <h1 class="entry-title">Tải abc full</h1>
+        </div>
+        {% load crispy_forms_tags %}
+        <div class="row justify-content-center">
+            <form class="form-inline" action="{% url 'core:program_detail' program.slug %}" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+                <div class="form-group mb-2">
+                {{f.code}}
+              </div>
+              <button type="submit" class="btn btn-primary mb-2">Enter</button>
+            </form>
+        </div>
+        <div class="row justify-content-center">
+            {% if check %}
+                <span>{{ program.link }}</span>
+            {% else %}
+                <span> {{ notifi }} </span>
+            {% endif %}
+        </div>
+
+    </div>
+{% endblock %}

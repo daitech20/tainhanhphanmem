@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-ND8J2CM');</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>TảiNhanhPhầnMềm.com - Chia sẻ miễn phí link tải phần mềm</title>
+    {% endblock %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Bootstrap CSS-->
+    {% load static %}
+    <link  rel="stylesheet" href="{% static 'core/css/base.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    {% block cssblock %}
+    {% endblock %}
+
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ND8J2CM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!--    <header id="header">-->
+<!--        <nav class="navbar navbar-dark bg-dark">-->
+<!--          <a class="navbar-brand">Kho du lieu</a>-->
+<!--          <form class="form-inline">-->
+<!--            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+<!--          </form>-->
+<!--        </nav>-->
+<!--    </header>-->
+    <header id="header" class="container-fluid">
+        <div class="row container global">
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div id="logo">
+                            <a href="{% url 'keywords:index' %}" title="TảiNhanhPhầnMềm.com - Chia sẻ miễn phí link tải phần mềm">
+                                <img width="481" height="68" src="/media/images/logo.png" class="header_logo header-logo" alt="Chia sẻ miễn phí">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-8 search-form">
+                        <div class="flex-col">
+                            <input type="search" class="search-field mb-0" name="s" value="" id="s" placeholder="Tìm kiếm" autocomplete="off">
+                        </div>
+                        <div class="flex-col">
+                            <button type="submit" class="ux-search-submit submit-button secondary button icon mb-0" aria-label="Submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+        </div>
+    </header>
+    {% block main %}
+    {% endblock %}
+
+    <footer>
+        <div class="container"></div>
+    </footer>
+
+</body>
+    {% block script %}
+    {% endblock %}
+
+</html>

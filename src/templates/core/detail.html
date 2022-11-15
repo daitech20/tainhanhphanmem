@@ -1,0 +1,108 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}
+    <title>Download {{ program.name}}</title>
+{% endblock %}
+{% block cssblock %}
+    <link  rel="stylesheet" href="{% static 'core/css/detail.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="main">
+        <div class="container">
+            <div id="content">
+               <div class="align-center">
+                    <div class="article-inner">
+                        <div class="entry-image" style="display: none;">
+                            <a href="">
+                                <img width="516" height="272" src="{{ program.image.url }}" class="attachment-large size-large wp-post-image" alt="" srcset="" sizes="(max-width: 516px) 100vw, 516px">
+                            </a>
+                    </div>
+                   {% load crispy_forms_tags %}
+                    <div class="entry-content">
+			{% if user.access == False  %}
+			    {{ program.content | safe| linebreaks }}
+			{% else %}
+                        {% if program.keyword_type == 0 %}
+                            <div class="entry-text">
+                                <h1 class="entry-title">{{ program.name }}</h1>
+                                <p style="color: red; font-weight: bold; margin-bottom: 15px; text-align: center;">***ĐỢT MỘT CHÚT, BẠN CẦN NHẬP PASS***</p>
+                            </div>
+                            <form action="{% url 'keywords:program_detail' program.slug %}?props={{ data_table.id }}" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-6 col-md-12">
+                                        {{f.code|as_crispy_field}}
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <button type="submit" class="btn btn-primary mb-2">BẤM XEM ĐIỂM </button>
+                                </div>
+                            </form>
+
+                            <div class="row justify-content-center">
+                                {% if check %}
+                                    <h4 style="color:green;">Xin lỗi, hệ thống đang bị gián đoạn. Bạn vui lòng thử lại sau.</h4>
+                                {% else %}
+                                    <h4 style="color:red;">{{ notifi }}</h4>
+                                {% endif %}
+                            </div>
+                		<p>Do tính chất bảo mật, điểm test sẽ được ẩn đi. Để xem điểm, bạn làm theo hướng dẫn bên dưới để lấy Pass nhập vào ô trên. Khi nhập Pass đúng, điểm sẽ hiện.</p>
+                        {% else %}
+                		<div class="entry-text">
+                                	<h1 class="entry-title">***Làm theo hướng dẫn bên dưới để lấy Pass giải nén***</h1>
+                            	</div>
+                		<div style="border: 1px dashed #007bff; padding: 10px 20px 0 20px; text-align: center; margin-bottom: 20px;">
+                    			<p>Bên mình không đặt link rút gọn, hay quảng cáo. Tuy nhiên, Website cũng cần chi phí để duy trì, mong bạn thông cảm giúp về sự bất tiện này.</p>
+                		</div>
+                        {% endif %}
+                	<div style="border: 1px dashed #007bff; padding: 15px 5px 0 5px; text-align: center; margin-bottom: 20px;">  
+                        <ul>
+                            <li>
+                                <div class="row unzip">
+                                    <div class="col-sm-6 col-md-12 col-lg-8 text_left">
+					<strong>Bước 1:</strong> Vào trang tìm kiếm
+					<a href="https://google.com.vn" target="_blank" style="color: #007bff; font-weight: bold; text-decoration: none">Google.com.vn</a>
+					gõ từ khóa (Bạn bấm sao chép cho nhanh)
+				    </div>
+                                    <div class="col-sm-6 col-md-12 col-lg-4 button_right">
+					<input type="text" value="{{ data_table.keyword }}" id="ikey" readonly="readonly">
+					<button onclick="copyToClipboard()" id="buco" style="font-size: 13px;">Sao chép
+					</button>
+				    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <strong>Bước 2:</strong> <span style="color: red; font-weight: bold;">Sử dụng điện thoại di động</span>, Tìm ở <span style="color: red; font-weight: bold;">trang 1</span> hoặc <span style="color: red; font-weight: bold;">trang 2</span> của kết quả tìm kiếm và click vào bài viết như hình dưới đây: <span style="font-style: italic;">(bạn xem đúng tiêu đề, tránh click nhầm trang sẽ không có Pass)</span>
+                            </li>
+                        </ul>
+                        <p>
+                            <img class="alignnone size-full wp-image-1864" src="{{ data_table.image.url }}" width="100%" height="auto">
+                        </p>
+                        <ul>
+                            <li><strong>Bước 3:</strong> Vào web, kéo xuống dưới, phần <span style="color: red; font-weight: bold;">TÔ ĐỎ</span> <strong>là pass</strong>:</li>
+                        </ul>
+                        <p>
+                            <img class="alignnone size-full wp-image-1864" src="{{ data_table.image2.url }}" width="100%" height="auto">
+                        </p>
+                    	</div>
+		    {% endif %}
+                    </div>
+               </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script>
+    function copyToClipboard() {
+    var textBox = document.getElementById("ikey");
+    var nameButton = document.getElementById("buco");
+    textBox.select();
+    document.execCommand("copy");
+    nameButton.innerHTML = "Đã copy";
+}
+</script>
+
+{% endblock %}

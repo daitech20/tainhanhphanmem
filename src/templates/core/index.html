@@ -1,0 +1,51 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>TảiNhanhPhầnMềm.com - Chia sẻ miễn phí link tải phần mềm</title>
+{% endblock %}
+
+{% block cssblock %}
+    <link rel="stylesheet" href="{% static 'core/css/index.css' %}">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/less/mixins/grid-framework.less">
+{% endblock %}
+{% block main %}
+    <div class="container" id="wrapper">
+        <div id="content">
+            <section class="section">
+                <div class="section-content">
+                    <div id="gap-708874946"></div>
+                    <div class="section-title-container">
+                        <h2 class="section-title section-title-center"><b></b><span class="section-title-main" style="color:rgb(255, 177, 17);">Phần Mềm</span><b></b></h2>
+                    </div>
+                    <div class="row">
+                        {% for p in program %}
+                        <div class="col-sm-6 col-md-4 col-lg-3 post-item">
+                            <div class="col-inner">
+                                <a href="{% url 'keywords:program_detail' p.slug %}">
+                                    <div class="box">
+                                        <div class="box-image">
+                                            <div class="image-cover">
+                                                <img width="1020" class="full zoom" height="574" src="{{ p.image.url }}" class="attachment-large size-large wp-post-image" alt="" srcset="" sizes="(max-width: 1020px) 100vw, 1020px">
+                                            </div>
+                                        </div>
+                                        <div class="box-text">
+                                            <div class="box-text-inner">
+                                                <h3 class="post-title">{{ p.name }}</h3>
+                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+    </div>
+{% endblock %}

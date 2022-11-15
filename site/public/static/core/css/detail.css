@@ -1,0 +1,113 @@
+/* CSS DETAIL */
+.main {
+    background-color:#fbfbfb;
+}
+
+body{
+    background: #fbfbfb;;
+}
+
+#content{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 100px;
+}
+
+.align-center{
+    margin: 0 auto;
+
+}
+
+.article-inner{
+    text-align: center;
+}
+
+.entry-image{
+    margin-top: 20px;
+}
+
+.entry-text h1{
+    color: inherit;
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 20px;
+    box-shadow: 0 1px 0 0 rgb(17 17 17 / 7%);
+    margin-bottom: 15px;
+}
+
+#toggleContent{
+    color: white;
+    border-color: rgba(0,0,0,.05);
+    border-radius: 7px;
+    font-weight: normal;
+    height: 45px;
+}
+
+.entry-content h2{
+    color: white;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+#textCode {
+    padding-right: 200px;
+    margin: 0;
+    height: 50px;
+    width: 80%;
+}
+
+.entry-content{
+    
+}
+
+ul li{
+    font-size: 16px;
+    text-align: left;
+    list-style: none;
+}
+
+#ikey{
+    width: auto;
+    background: #fbfbfb;
+    font-weight: bold;
+    border: 1px solid #007bff;
+    vertical-align: 0px;
+    height: 35px;
+    color: #333;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#buco{
+    background: #007bff;
+    position: absolute;
+    height: 35px;
+    border: none;
+    width: auto;
+    color: #fff;
+    border-radius: 5px;
+    margin-left: 10px;
+    padding: 0 10px 0 10px;
+}
+
+li{
+    margin-bottom: 10px;
+}
+
+p{
+    margin-bottom: 10px;
+    line-height: 25px;
+}
+ul{
+    margin-bottom: 25px;
+}
+
+@media only screen and (max-width: 414px) {
+    #ikey {width: 70%;}
+}
+@media only screen and (min-width: 415px) {
+    .text_left {margin-right: -65px; padding-top: 5px;}
+    #ikey {text-align: left; padding-left: 5px;}
+}
+/* END DETAIL */
